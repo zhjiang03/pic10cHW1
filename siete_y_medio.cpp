@@ -165,9 +165,18 @@ void run_one_bet(Player* player) {
 int main(){
    /* --STATEMENTS-- */
   Player* player = new Player(100);
+  while (player->get_money() > 0 && player->get_money() < 1000) {
+	  run_one_bet(player);
+  }
+  if (player->get_money() <= 0) {
+	  cout << "You have lost all your money!\n"
+		  << "Game over!\n";
+  }
+  else {
+	  cout << "The dealer has lost all money!\n"
+		  << "You win!\n";
+  }
 
-  run_one_bet(player);
-  
   delete player;
   return 0;
 }
